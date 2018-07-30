@@ -1,17 +1,14 @@
 package org.cynerds.mgb.controller;
 
 import org.cynerds.mgb.Greeting;
+import org.cynerds.mgb.model.Test;
+import org.cynerds.mgb.mybatis.TestMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -27,11 +24,24 @@ public class GreetingController {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private TestMapper testMapper;
+
     @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) throws SQLException {
+    public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    }
+
+    @GetMapping("/dbCheck")
+    public Test dbCheck(@RequestParam(value = "id", defaultValue = "1") int id) throws SQLException {
         LOG.warn("DS = {}", dataSource);
         LOG.warn("conn = {}", dataSource.getConnection());
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+        LOG.warn("mapper = {}", testMapper);
+
+        Test t = testMapper.queryTestRecord(id);
+        LOG.warn("t = {}", t);
+
+        return t;
     }
 
 }

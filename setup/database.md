@@ -7,11 +7,13 @@ CREATE DATABASE mgb
 
 CREATE TABLE test
     (
-        id INT,
+        id INT UNIQUE,
         msg VARCHAR(512),
         createDate DATETIME
     )
     ENGINE = InnoDB;
+
+INSERT INTO test (id, msg, createDate) VALUES (1, 'first record', NOW());
 
 CREATE USER 'the_user_name'@'localhost' IDENTIFIED BY 'the_pass_word';
 
