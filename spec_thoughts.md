@@ -22,23 +22,38 @@
 ## Data
 
 ### Storage
+MySQL
+```sql
+DEFAULT CHARACTER SET utf8mb4
+DEFAULT COLLATE utf8mb4_general_ci;
+```
 
-mysql maybe
+在一首歌只有一個人買的情況下，可以有兩種表示方式：
+1. 直接看 track.creator
+2. co-buyer 該 track id 只會有一筆紀錄
+先用 2 的方式來做，比較不會變成一條潛規則
+
+
+
+#### track co_buyer
+|           track id           |  co_buyer   |   creator    | create date  | update date |
+| :--------------------------: | :---------: | :----------: | :----------: | :---------: |
+| medium int unsigned, NN, key | varchar, NN | datetime, NN | datetime, NN |  datetime   |
 
 #### track
-|      track id      |    track name    | album id (mora url path) | track number (ordinal) | price |   co-buyer   | purchase date | creator  | create date | update date |
-| ------------------ | ---------------- | ------------------------ | ---------------------- | ----- | ------------ | ------------- | -------- | ----------- | ----------- |
-| int auto increment | varchar utf8-mb4 | varchar utf8-mb4         | small int              | float | array maybe? | datetime      | datetime | datetime    | datetime    |
+|                track id                 | album id (mora url path) |  track no (ordinal)   | track name  |   artist    |      price (yen)       | purchase date |   creator    | create date  | update date |
+| :-------------------------------------: | :----------------------: | :-------------------: | :---------: | :---------: | :--------------------: | :-----------: | :----------: | :----------: | :---------: |
+| medium int unsigned, auto increment, PK |       varchar, NN        | tiny int unsigned, NN | varchar, NN | varchar, NN | small int unsigned, NN |   datetime    | datetime, NN | datetime, NN |  datetime   |
 
 #### album
-|     album id      |    album name    |        cover art        |       link       | creator  | create date | update date |
-| ----------------- | ---------------- | ----------------------- | ---------------- | -------- | ----------- | ----------- |
-| varchavr utf8-mb4 | varchar utf8-mb4 | binary? imgur link? s3? | varchar utf8-mb4 | datetime | datetime    | datetime    |
+| album id  (mora url path) | album name  |   artist    |           cover art           |   url    |   creator    | create date  | update date |
+| :-----------------------: | :---------: | :---------: | :---------------------------: | :------: | :----------: | :----------: | :---------: |
+|        varchar, PK        | varchar, NN | varchar, NN | text, binary? imgur link? s3? | text, NN | datetime, NN | datetime, NN |  datetime   |
 
-#### co-buyer
-|     user id      |     nickname     | create date | update date |
-| ---------------- | ---------------- | ----------- | ----------- |
-| varchar utf8-mb4 | varchar utf8-mb4 | datetime    | datetime    |
+#### user
+|   user id   |     nickname     | create date  | update date |
+| :---------: | :--------------: | :----------: | :---------: |
+| varchar, PK | varchar, NN, idx | datetime, NN |  datetime   |
 
 ---
 ## API

@@ -2,7 +2,7 @@
 
 ```sql
 CREATE DATABASE mgb
-    DEFAULT character set utf8mb4
+    DEFAULT CHARACTER SET utf8mb4
     DEFAULT COLLATE utf8mb4_general_ci;
 
 USE mgb;
