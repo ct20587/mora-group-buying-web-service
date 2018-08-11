@@ -6,5 +6,5 @@ import org.cynerds.mgb.model.Test;
 
 @Mapper
 public interface TestMapper {
-    public Test queryTestRecord(@Param("id") Integer id);
+    Test queryTestRecord(@Param("id") Integer id);
 }
