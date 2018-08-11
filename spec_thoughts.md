@@ -36,24 +36,24 @@ DEFAULT COLLATE utf8mb4_general_ci;
 
 
 #### track co_buyer
-|           track id           |  co_buyer   |   creator    | create date  | update date |
-| :--------------------------: | :---------: | :----------: | :----------: | :---------: |
-| medium int unsigned, NN, key | varchar, NN | datetime, NN | datetime, NN |  datetime   |
+|           track id           |  co_buyer   |   creator   | create date  | updater | update date |
+| :--------------------------: | :---------: | :---------: | :----------: | :-----: | :---------: |
+| medium int unsigned, NN, key | varchar, NN | varchar, NN | datetime, NN | varchar |  datetime   |
 
 #### track
-|                track id                 | album id (mora url path) |  track no (ordinal)   | track name  |   artist    |      price (yen)       | purchase date |   creator    | create date  | update date |
-| :-------------------------------------: | :----------------------: | :-------------------: | :---------: | :---------: | :--------------------: | :-----------: | :----------: | :----------: | :---------: |
-| medium int unsigned, auto increment, PK |       varchar, NN        | tiny int unsigned, NN | varchar, NN | varchar, NN | small int unsigned, NN |   datetime    | datetime, NN | datetime, NN |  datetime   |
+|                track id                 | album id (mora url path) |  track no (ordinal)   | track name  |   artist    |      price (yen)       | purchase date |   creator   | create date  | updater | update date |
+| :-------------------------------------: | :----------------------: | :-------------------: | :---------: | :---------: | :--------------------: | :-----------: | :---------: | :----------: | :-----: | :---------: |
+| medium int unsigned, auto increment, PK |       varchar, NN        | tiny int unsigned, NN | varchar, NN | varchar, NN | small int unsigned, NN |   datetime    | varchar, NN | datetime, NN | varchar |  datetime   |
 
 #### album
-| album id  (mora url path) | album name  |   artist    |           cover art           |   url    |   creator    | create date  | update date |
-| :-----------------------: | :---------: | :---------: | :---------------------------: | :------: | :----------: | :----------: | :---------: |
-|        varchar, PK        | varchar, NN | varchar, NN | text, binary? imgur link? s3? | text, NN | datetime, NN | datetime, NN |  datetime   |
+| album id  (mora url path) | album name  |   artist    |           cover art           |   url    |   creator   | create date  | updater | update date |
+| :-----------------------: | :---------: | :---------: | :---------------------------: | :------: | :---------: | :----------: | :-----: | :---------: |
+|        varchar, PK        | varchar, NN | varchar, NN | text, binary? imgur link? s3? | text, NN | varchar, NN | datetime, NN | varchar |  datetime   |
 
 #### user
-|   user id   |     nickname     | create date  | update date |
-| :---------: | :--------------: | :----------: | :---------: |
-| varchar, PK | varchar, NN, idx | datetime, NN |  datetime   |
+|   user id   |     nickname     | create date  | updater | update date |
+| :---------: | :--------------: | :----------: | :-----: | :---------: |
+| varchar, PK | varchar, NN, idx | datetime, NN | varchar |  datetime   |
 
 ---
 ## API

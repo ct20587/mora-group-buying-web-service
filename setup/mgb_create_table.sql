@@ -1,8 +1,9 @@
 CREATE TABLE track_co_buyer (
     track_id MEDIUMINT UNSIGNED NOT NULL KEY,
     co_buyer VARCHAR(32) NOT NULL,
-    creator DATETIME NOT NULL,
+    creator VARCHAR(32) NOT NULL,
     create_date DATETIME NOT NULL,
+    updater VARCHAR(32) DEFAULT NULL,
     update_date DATETIME DEFAULT NULL
 ) ENGINE = InnoDB;
 
@@ -14,8 +15,9 @@ CREATE TABLE track (
     artist VARCHAR(128) NOT NULL,
     price SMALLINT UNSIGNED NOT NULL COMMENT 'Japanese yen',
     purchase_date DATETIME DEFAULT NULL,
-    creator DATETIME NOT NULL,
+    creator VARCHAR(32) NOT NULL,
     create_date DATETIME NOT NULL,
+    updater VARCHAR(32) DEFAULT NULL,
     update_date DATETIME DEFAULT NULL
 ) ENGINE = InnoDB;
 
@@ -25,8 +27,9 @@ CREATE TABLE album (
     artist VARCHAR(128) NOT NULL,
     cover_art TEXT DEFAULT NULL,
     url TEXT NOT NULL,
-    creator DATETIME NOT NULL,
+    creator VARCHAR(32) NOT NULL,
     create_date DATETIME NOT NULL,
+    updater VARCHAR(32) DEFAULT NULL,
     update_date DATETIME DEFAULT NULL
 ) ENGINE = InnoDB;
 
@@ -34,6 +37,7 @@ CREATE TABLE user (
     user_id VARCHAR(32) PRIMARY KEY,
     nickname VARCHAR(32) NOT NULL,
     create_date DATETIME NOT NULL,
+    updater VARCHAR(32) DEFAULT NULL,
     update_date DATETIME DEFAULT NULL,
     INDEX (nickname)
 ) ENGINE = InnoDB;
