@@ -1,10 +1,11 @@
 CREATE TABLE track_co_buyer (
-    track_id MEDIUMINT UNSIGNED NOT NULL KEY,
+    track_id MEDIUMINT UNSIGNED NOT NULL,
     co_buyer VARCHAR(32) NOT NULL,
     creator VARCHAR(32) NOT NULL,
     create_date DATETIME NOT NULL,
     updater VARCHAR(32) DEFAULT NULL,
-    update_date DATETIME DEFAULT NULL
+    update_date DATETIME DEFAULT NULL,
+    INDEX (track_id)
 ) ENGINE = InnoDB;
 
 CREATE TABLE track (

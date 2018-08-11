@@ -38,7 +38,7 @@ DEFAULT COLLATE utf8mb4_general_ci;
 #### track co_buyer
 |           track id           |  co_buyer   |   creator   | create date  | updater | update date |
 | :--------------------------: | :---------: | :---------: | :----------: | :-----: | :---------: |
-| medium int unsigned, NN, key | varchar, NN | varchar, NN | datetime, NN | varchar |  datetime   |
+| medium int unsigned, NN, idx | varchar, NN | varchar, NN | datetime, NN | varchar |  datetime   |
 
 #### track
 |                track id                 | album id (mora url path) |  track no (ordinal)   | track name  |   artist    |      price (yen)       | purchase date |   creator   | create date  | updater | update date |
