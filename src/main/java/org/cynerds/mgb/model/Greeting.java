@@ -1,4 +1,4 @@
-package org.cynerds.mgb;
+package org.cynerds.mgb.model;
 
 public class Greeting {
 

@@ -1,6 +1,6 @@
 package org.cynerds.mgb.controller;
 
-import org.cynerds.mgb.Greeting;
+import org.cynerds.mgb.model.Greeting;
 import org.cynerds.mgb.model.Test;
 import org.cynerds.mgb.mybatis.TestMapper;
 import org.slf4j.Logger;
