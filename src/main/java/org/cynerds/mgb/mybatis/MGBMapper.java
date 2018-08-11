@@ -2,9 +2,11 @@ package org.cynerds.mgb.mybatis;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.cynerds.mgb.model.Test;
+import org.cynerds.mgb.model.Track;
+
+import java.util.List;
 
 @Mapper
-public interface TestMapper {
-    public Test queryTestRecord(@Param("id") Integer id);
+public interface MGBMapper {
+    List<Track> queryTracks();
 }
