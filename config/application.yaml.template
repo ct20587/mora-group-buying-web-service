@@ -2,6 +2,7 @@ spring:
   profiles: default
   datasource:
     url: jdbc:mysql://localhost:8306/mgb?useSSL=true&verifyServerCertificate=false
+    # url: jdbc:mysql://localhost:8306/mgb?useSSL=true&verifyServerCertificate=false&serverTimezone=Asia/Taipei
     username: username
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
