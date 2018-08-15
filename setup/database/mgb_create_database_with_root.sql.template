@@ -1,6 +1,3 @@
-# Database setups
-
-```sql
 CREATE DATABASE mgb
     DEFAULT CHARACTER SET utf8mb4
     DEFAULT COLLATE utf8mb4_general_ci;
@@ -19,7 +16,4 @@ INSERT INTO test (id, msg, createDate) VALUES (1, 'first record', NOW());
 
 CREATE USER 'the_user_name'@'localhost' IDENTIFIED BY 'the_password';
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON mgb.* TO 'the_user_name'@'localhost';
-```
-
-which can achieve by copy the template and remove the suffix `template`,
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON mgb.* TO 'the_user_name'@'localhost';
