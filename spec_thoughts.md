@@ -3,7 +3,7 @@
 ## UI
 
 ### Register
-- 貼上網址後，自動括回封面、曲目列表，提供清單以勾選方式加入，可增加共買者（需有自動完成之類的）
+- 貼上網址後，自動刮回封面、曲目列表，提供清單以勾選方式加入，可增加共買者（需有自動完成之類的）
 - 提供表格全手動輸入
 
 ### Checkout
@@ -46,9 +46,9 @@ DEFAULT COLLATE utf8mb4_general_ci;
 | medium int unsigned, auto increment, PK |       varchar, NN        | tiny int unsigned, NN | varchar, NN | varchar, NN | small int unsigned, NN |   datetime    | varchar, NN | datetime, NN | varchar |  datetime   |
 
 #### album
-| album id  (mora url path) | album name  |   artist    |           cover art           |   url    |   creator   | create date  | updater | update date |
-| :-----------------------: | :---------: | :---------: | :---------------------------: | :------: | :---------: | :----------: | :-----: | :---------: |
-|        varchar, PK        | varchar, NN | varchar, NN | text, binary? imgur link? s3? | text, NN | varchar, NN | datetime, NN | varchar |  datetime   |
+| album id  (mora url path) | album name  |   artist    |       cover art        |   url    |   creator   | create date  | updater | update date |
+| :-----------------------: | :---------: | :---------: | :--------------------: | :------: | :---------: | :----------: | :-----: | :---------: |
+|        varchar, PK        | varchar, NN | varchar, NN | text (imgur link? s3?) | text, NN | varchar, NN | datetime, NN | varchar |  datetime   |
 
 #### user
 |   user id   |     nickname     | create date  | updater | update date |

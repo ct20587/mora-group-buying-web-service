@@ -7,7 +7,7 @@ MySQL database, this project is developed with MySQL 8.0, other version may work
 ## Application configuration
 
 First thing you need to get done with is to create an application config `application.yaml`,
-its template [application.template](../config/application.yaml.template) is inside the `config` directory, make a copy of it with the suffix 'template' removed,
+its template [application.template](../config/application.yaml.template) is inside the `config` directory, make a copy of it with the suffix `template` removed,
 modify datasource settings with your actual MySQL setttings such as username, password, etc.
 
 
