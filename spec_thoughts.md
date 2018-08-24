@@ -41,9 +41,9 @@ DEFAULT COLLATE utf8mb4_general_ci;
 | medium int unsigned, NN, idx | varchar, NN | varchar, NN | datetime, NN | varchar |  datetime   |
 
 #### track
-|                track id                 | album id (mora url path) |  track no (ordinal)   | track name  |   artist    |      price (yen)       | purchase date |   creator   | create date  | updater | update date |
-| :-------------------------------------: | :----------------------: | :-------------------: | :---------: | :---------: | :--------------------: | :-----------: | :---------: | :----------: | :-----: | :---------: |
-| medium int unsigned, auto increment, PK |       varchar, NN        | tiny int unsigned, NN | varchar, NN | varchar, NN | small int unsigned, NN |   datetime    | varchar, NN | datetime, NN | varchar |  datetime   |
+|                track id                 | album id (mora url path) |        track no (ordinal)         | track name  |   artist    |      price (yen)       | purchase date |   creator   | create date  | updater | update date |
+| :-------------------------------------: | :----------------------: | :-------------------------------: | :---------: | :---------: | :--------------------: | :-----------: | :---------: | :----------: | :-----: | :---------: |
+| medium int unsigned, auto increment, PK | varchar, NN, UNIQUE KEY  | tiny int unsigned, NN, UNIQUE KEY | varchar, NN | varchar, NN | small int unsigned, NN |   datetime    | varchar, NN | datetime, NN | varchar |  datetime   |
 
 #### album
 | album id  (mora url path) | album name  |   artist    |       cover art        |   url    |   creator   | create date  | updater | update date |
