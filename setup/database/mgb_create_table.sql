@@ -19,7 +19,8 @@ CREATE TABLE track (
     creator VARCHAR(32) NOT NULL,
     create_date DATETIME NOT NULL,
     updater VARCHAR(32) DEFAULT NULL,
-    update_date DATETIME DEFAULT NULL
+    update_date DATETIME DEFAULT NULL,
+    UNIQUE KEY (album_id, track_no)
 ) ENGINE = InnoDB;
 
 CREATE TABLE album (
