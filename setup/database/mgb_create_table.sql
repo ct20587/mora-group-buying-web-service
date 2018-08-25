@@ -16,11 +16,12 @@ CREATE TABLE track (
     artist VARCHAR(128) NOT NULL,
     price SMALLINT UNSIGNED NOT NULL COMMENT 'Japanese yen',
     purchase_date DATETIME DEFAULT NULL,
+    memo VARCHAR(128) DEFAULT NULL,
     creator VARCHAR(32) NOT NULL,
     create_date DATETIME NOT NULL,
     updater VARCHAR(32) DEFAULT NULL,
     update_date DATETIME DEFAULT NULL,
-    UNIQUE KEY (album_id, track_no)
+    UNIQUE KEY `album_id + track_no` (album_id, track_no)
 ) ENGINE = InnoDB;
 
 CREATE TABLE album (
