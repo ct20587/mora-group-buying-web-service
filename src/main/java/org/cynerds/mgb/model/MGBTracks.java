@@ -3,10 +3,22 @@ package org.cynerds.mgb.model;
 import java.util.List;
 
 public class MGBTracks {
+    private int id;
     private List<Track> tracks;
     private List<Album> albums;
     private List<User> coBuyers;
-    private int total;
+    private List<TrackCoBuyerMapping> mappings;
+    private int totalFoundTracks;
+    private int page;
+    private int size;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public List<Track> getTracks() {
         return tracks;
@@ -35,22 +47,52 @@ public class MGBTracks {
         return this;
     }
 
-    public int getTotal() {
-        return total;
+    public List<TrackCoBuyerMapping> getMappings() {
+        return mappings;
     }
 
-    public MGBTracks setTotal(int total) {
-        this.total = total;
+    public void setMappings(List<TrackCoBuyerMapping> mappings) {
+        this.mappings = mappings;
+    }
+
+    public int getTotalFoundTracks() {
+        return totalFoundTracks;
+    }
+
+    public MGBTracks setTotalFoundTracks(int totalFoundTracks) {
+        this.totalFoundTracks = totalFoundTracks;
+        return this;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public MGBTracks setPage(int page) {
+        this.page = page;
+        return this;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public MGBTracks setSize(int size) {
+        this.size = size;
         return this;
     }
 
     @Override
     public String toString() {
         return "MGBTracks{" +
-                "tracks=" + tracks +
+                "id=" + id +
+                ", tracks=" + tracks +
                 ", albums=" + albums +
                 ", coBuyers=" + coBuyers +
-                ", total=" + total +
+                ", mappings=" + mappings +
+                ", totalFoundTracks=" + totalFoundTracks +
+                ", page=" + page +
+                ", size=" + size +
                 '}';
     }
 }

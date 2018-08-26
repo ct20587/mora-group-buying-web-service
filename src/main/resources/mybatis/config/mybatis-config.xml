@@ -8,5 +8,6 @@
         <typeAlias alias="Track" type="org.cynerds.mgb.model.Track"/>
         <typeAlias alias="Album" type="org.cynerds.mgb.model.Album"/>
         <typeAlias alias="User" type="org.cynerds.mgb.model.User"/>
+        <typeAlias alias="TrackCoBuyerMapping" type="org.cynerds.mgb.model.TrackCoBuyerMapping"/>
     </typeAliases>
 </configuration>

@@ -1,8 +1,5 @@
 package org.cynerds.mgb.model;
 
-import java.util.List;
-import java.util.Set;
-
 public class Track {
     private int trackId;
     private String albumId;
@@ -10,7 +7,6 @@ public class Track {
     private String trackName;
     private String artist;
     private int price;
-    private List<String> coBuyers;
     private String purchaseDate;
     private String memo;
     private String creator;
@@ -64,14 +60,6 @@ public class Track {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    public List<String> getCoBuyers() {
-        return coBuyers;
-    }
-
-    public void setCoBuyers(List<String> coBuyers) {
-        this.coBuyers = coBuyers;
     }
 
     public String getPurchaseDate() {
@@ -131,7 +119,6 @@ public class Track {
                 ", trackName='" + trackName + '\'' +
                 ", artist='" + artist + '\'' +
                 ", price=" + price +
-                ", coBuyers=" + coBuyers +
                 ", purchaseDate='" + purchaseDate + '\'' +
                 ", creator='" + creator + '\'' +
                 ", createDate='" + createDate + '\'' +
