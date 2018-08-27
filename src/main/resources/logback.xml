@@ -4,6 +4,7 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
     <!--<logger name="org.cynerds.mgb.mybatis.TestMapper" level="DEBUG"/>-->
+    <!--<logger name="org.cynerds.mgb.mybatis.MGBMapper" level="DEBUG"/>-->
     <!-- logger setting example for mybatis mapper's log -->
 
 </configuration>

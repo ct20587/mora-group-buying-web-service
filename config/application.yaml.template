@@ -8,4 +8,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
-  mapper-locations: classpath:mybatis/*.xml
+  config-location: classpath:mybatis/config/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+#server:
+#  compression:
+#    enabled: true
+#    mime-types: application/json

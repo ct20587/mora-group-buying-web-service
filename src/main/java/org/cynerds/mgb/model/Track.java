@@ -1,8 +1,5 @@
 package org.cynerds.mgb.model;
 
-import java.time.OffsetDateTime;
-import java.util.Set;
-
 public class Track {
     private int trackId;
     private String albumId;
@@ -10,8 +7,8 @@ public class Track {
     private String trackName;
     private String artist;
     private int price;
-    private Set<String> coBuyers;
     private String purchaseDate;
+    private String memo;
     private String creator;
     private String createDate;
     private String updater;
@@ -65,20 +62,20 @@ public class Track {
         this.price = price;
     }
 
-    public Set<String> getCoBuyers() {
-        return coBuyers;
-    }
-
-    public void setCoBuyers(Set<String> coBuyers) {
-        this.coBuyers = coBuyers;
-    }
-
     public String getPurchaseDate() {
         return purchaseDate;
     }
 
     public void setPurchaseDate(String purchaseDate) {
         this.purchaseDate = purchaseDate;
+    }
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
     }
 
     public String getCreator() {
@@ -122,7 +119,6 @@ public class Track {
                 ", trackName='" + trackName + '\'' +
                 ", artist='" + artist + '\'' +
                 ", price=" + price +
-                ", coBuyers=" + coBuyers +
                 ", purchaseDate='" + purchaseDate + '\'' +
                 ", creator='" + creator + '\'' +
                 ", createDate='" + createDate + '\'' +
