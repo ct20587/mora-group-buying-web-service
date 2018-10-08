@@ -21,7 +21,7 @@ CREATE TABLE track (
     create_date DATETIME NOT NULL,
     updater VARCHAR(32) DEFAULT NULL,
     update_date DATETIME DEFAULT NULL,
-    UNIQUE KEY `album_id + track_no` (album_id, track_no)
+    UNIQUE KEY `album_id and track_no` (album_id, track_no)
 ) ENGINE = InnoDB;
 
 CREATE TABLE album (
