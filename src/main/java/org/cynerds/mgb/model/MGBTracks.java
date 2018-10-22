@@ -3,7 +3,6 @@ package org.cynerds.mgb.model;
 import java.util.List;
 
 public class MGBTracks {
-    private int id;
     private List<Track> tracks;
     private List<Album> albums;
     private List<User> coBuyers;
@@ -11,14 +10,6 @@ public class MGBTracks {
     private int totalFoundTracks;
     private int page;
     private int size;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public List<Track> getTracks() {
         return tracks;
@@ -85,7 +76,6 @@ public class MGBTracks {
     @Override
     public String toString() {
         return "MGBTracks{" +
-                "id=" + id +
                 ", tracks=" + tracks +
                 ", albums=" + albums +
                 ", coBuyers=" + coBuyers +

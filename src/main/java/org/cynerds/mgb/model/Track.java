@@ -1,7 +1,9 @@
 package org.cynerds.mgb.model;
 
+import java.util.List;
+
 public class Track {
-    private int trackId;
+    private Integer trackId;
     private String albumId;
     private int trackNo;
     private String trackName;
@@ -14,11 +16,14 @@ public class Track {
     private String updater;
     private String updateDate;
 
-    public int getTrackId() {
+    // Used when request to create track
+    private List<String> coBuyers;
+
+    public Integer getTrackId() {
         return trackId;
     }
 
-    public void setTrackId(int trackId) {
+    public void setTrackId(Integer trackId) {
         this.trackId = trackId;
     }
 
@@ -110,6 +115,14 @@ public class Track {
         this.updateDate = updateDate;
     }
 
+    public List<String> getCoBuyers() {
+        return coBuyers;
+    }
+
+    public void setCoBuyers(List<String> coBuyers) {
+        this.coBuyers = coBuyers;
+    }
+
     @Override
     public String toString() {
         return "Track{" +
@@ -120,10 +133,12 @@ public class Track {
                 ", artist='" + artist + '\'' +
                 ", price=" + price +
                 ", purchaseDate='" + purchaseDate + '\'' +
+                ", memo='" + memo + '\'' +
                 ", creator='" + creator + '\'' +
                 ", createDate='" + createDate + '\'' +
                 ", updater='" + updater + '\'' +
                 ", updateDate='" + updateDate + '\'' +
+                ", coBuyers=" + coBuyers +
                 '}';
     }
 }
