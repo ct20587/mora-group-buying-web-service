@@ -2,6 +2,7 @@ package org.cynerds.mgb.controller;
 
 import com.google.gson.JsonSyntaxException;
 import org.cynerds.mgb.dao.MGBDuplicateTrackException;
+import org.cynerds.mgb.dao.MGBNoSuchAlbumException;
 import org.cynerds.mgb.model.MGBTrackValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,6 +54,16 @@ public class MGBControllerAdvice {
                             new MGBErrorResponse(unexpectedErrorMessage)
                     );
         }
+    }
+
+    @ExceptionHandler(MGBNoSuchAlbumException.class)
+    @ResponseBody
+    public ResponseEntity<MGBErrorResponse> noSuchAlbumErrorHandler(MGBNoSuchAlbumException e) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(
+                        new MGBErrorResponse(e.getMessage(), e.getAlbum())
+                );
     }
 
     @ExceptionHandler(Exception.class)

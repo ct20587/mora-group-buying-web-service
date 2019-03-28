@@ -23,4 +23,6 @@ public interface MGBMapper {
     int createTrack(@Param("track") Track track);
 
     int createTrackCoBuyerMappings(@Param("track") Track track);
+
+    int updateAlbum(@Param("album") Album album);
 }

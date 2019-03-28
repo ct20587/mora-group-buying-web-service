@@ -141,4 +141,18 @@
                 ( #{track.trackId}, #{coBuyer}, "SYSTEM", NOW() )
             </foreach>
     </insert>
+
+    <update id="updateAlbum">
+        UPDATE album
+            <set>
+                <if test="album.albumName != null"> album_name = #{album.albumName}, </if>
+                <if test="album.artist != null"> artist = #{album.artist}, </if>
+                <if test="album.coverArt != null"> cover_art = #{album.coverArt}, </if>
+                <if test="album.url != null"> url = #{album.url}, </if>
+                updater = 'SYSTEM',
+                update_date = NOW()
+            </set>
+        WHERE
+            album_id = #{album.albumId}
+    </update>
 </mapper>

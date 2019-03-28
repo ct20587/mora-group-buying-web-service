@@ -98,4 +98,17 @@ public class TrackDao {
 
         }
     }
+
+    @Transactional
+    public void updateAlbums(List<Album> albums) {
+        for (Album album : albums) {
+            if (mgbMapper.updateAlbum(album) != 1) {
+                String message = String.format(
+                        "No such album with ID: %s",
+                        album.getAlbumId()
+                );
+                throw new MGBNoSuchAlbumException(album, message);
+            };
+        }
+    }
 }
