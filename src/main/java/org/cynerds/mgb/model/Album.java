@@ -11,6 +11,28 @@ public class Album {
     private String updater;
     private String updateDate;
 
+    public static void validate(Album album) {
+
+        String albumName = album.getAlbumName();
+
+        if (albumName == null || albumName.isEmpty()) {
+            throw new MGBTrackValidationException("albumName can't be empty");
+        }
+
+        if (album.getAlbumId() == null || album.getAlbumId().isEmpty()) {
+            throw new MGBTrackValidationException(MGBTrackValidationException.Type.ALBUM, "albumId", albumName);
+        }
+
+        if (album.getArtist() == null || album.getArtist().isEmpty()) {
+            throw new MGBTrackValidationException(MGBTrackValidationException.Type.ALBUM, "artist", albumName);
+        }
+
+        if (album.getUrl() == null || album.getUrl().isEmpty()) {
+            throw new MGBTrackValidationException(MGBTrackValidationException.Type.ALBUM, "url", albumName);
+        }
+
+    }
+
     public String getAlbumId() {
         return albumId;
     }

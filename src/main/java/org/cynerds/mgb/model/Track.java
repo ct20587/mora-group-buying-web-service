@@ -1,6 +1,7 @@
 package org.cynerds.mgb.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Track {
     private Integer trackId;
@@ -18,6 +19,42 @@ public class Track {
 
     // Used when request to create track
     private List<String> coBuyers;
+
+    public static void validate(Track track) {
+
+        String trackName = track.getTrackName();
+
+        if (trackName == null || trackName.isEmpty()) {
+            throw new MGBTrackValidationException("trackName can't be empty");
+        }
+
+        if (track.getAlbumId() == null || track.getAlbumId().isEmpty()) {
+            throw new MGBTrackValidationException(MGBTrackValidationException.Type.TRACK, "albumId", trackName);
+        }
+
+        if (track.getTrackNo() < 1) {
+            throw new MGBTrackValidationException(MGBTrackValidationException.Type.TRACK, "trackNo", trackName);
+        }
+
+        if (track.getArtist() == null || track.getArtist().isEmpty()) {
+            throw new MGBTrackValidationException(MGBTrackValidationException.Type.TRACK, "artist", trackName);
+        }
+
+        if (track.getPrice() < 1) {
+            throw new MGBTrackValidationException(MGBTrackValidationException.Type.TRACK, "price", trackName);
+        }
+
+        if (track.getCoBuyers() == null || track.getCoBuyers().isEmpty()) {
+            throw new MGBTrackValidationException(MGBTrackValidationException.Type.TRACK, "coBuyers", trackName);
+        } else {
+            List<String> emptyCoBuyers = track.getCoBuyers().stream()
+                    .filter(coBuyer -> coBuyer == null || coBuyer.isEmpty())
+                    .collect(Collectors.toList());
+            if (!emptyCoBuyers.isEmpty()) {
+                throw new MGBTrackValidationException("coBuyers value can't be empty or null");
+            }
+        }
+    }
 
     public Integer getTrackId() {
         return trackId;

@@ -17,15 +17,17 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class GreetingController {
 
+    private DataSource dataSource;
+    private TestMapper testMapper;
     private static final String template = "Hello, %s!";
     private static final Logger LOG = LoggerFactory.getLogger(GreetingController.class);
     private final AtomicLong counter = new AtomicLong();
 
     @Autowired
-    private DataSource dataSource;
-
-    @Autowired
-    private TestMapper testMapper;
+    public GreetingController(DataSource dataSource, TestMapper testMapper) {
+        this.dataSource = dataSource;
+        this.testMapper = testMapper;
+    }
 
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
