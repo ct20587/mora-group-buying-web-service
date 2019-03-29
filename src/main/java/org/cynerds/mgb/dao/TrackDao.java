@@ -127,4 +127,14 @@ public class TrackDao {
             };
         }
     }
+
+    @Transactional
+    public void deleteAlbums(List<String> albumIds) {
+        for (String albumId : albumIds) {
+            if (mgbMapper.deleteAlbum(albumId) != 1) {
+                String message = String.format("No such album with ID: %s", albumId);
+                throw new MGBNoSuchAlbumException(new Album().setAlbumId(albumId), message);
+            }
+        }
+    }
 }

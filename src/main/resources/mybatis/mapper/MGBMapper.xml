@@ -172,4 +172,9 @@
         WHERE
         track_id = #{track.trackId}
     </update>
+
+    <delete id="deleteAlbum">
+        DELETE FROM album
+        WHERE album_id = #{albumId}
+    </delete>
 </mapper>

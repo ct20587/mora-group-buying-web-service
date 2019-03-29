@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -151,6 +152,16 @@ public class TrackController {
         auth(passphrase);
         trackDao.updateTracks(tracks);
         return ResponseEntity.status(HttpStatus.OK).body(tracks);
+    }
+
+    @DeleteMapping("/albums")
+    public ResponseEntity<String> deleteAlbums(
+            @RequestHeader("FLASH") String passphrase,
+            @RequestBody List<String> albumIds
+    ) {
+        auth(passphrase);
+        trackDao.deleteAlbums(albumIds);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     private void auth(String passphrase) {
