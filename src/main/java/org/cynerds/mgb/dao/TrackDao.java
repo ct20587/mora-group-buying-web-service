@@ -19,6 +19,9 @@ public class TrackDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(TrackDao.class);
 
+    // datetime example  2019-03-28 16:59:46
+    private static final String datetimeFormat = "yyyy-MM-dd kk:mm:ss";
+
     private MGBMapper mgbMapper;
 
     @Autowired
@@ -96,6 +99,52 @@ public class TrackDao {
 
             mgbMapper.createTrackCoBuyerMappings(track);
 
+        }
+    }
+
+    @Transactional
+    public void updateAlbums(List<Album> albums) {
+        for (Album album : albums) {
+            if (mgbMapper.updateAlbum(album) != 1) {
+                String message = String.format(
+                        "No such album with ID: %s",
+                        album.getAlbumId()
+                );
+                throw new MGBNoSuchAlbumException(album, message);
+            };
+        }
+    }
+
+    @Transactional
+    public void updateTracks(List<Track> tracks) {
+        for (Track track : tracks) {
+            if (mgbMapper.updateTrack(track) != 1) {
+                String message = String.format(
+                        "No such track with ID: %s",
+                        track.getTrackId()
+                );
+                throw new MGBNoSuchTrackException(track, message);
+            };
+        }
+    }
+
+    @Transactional
+    public void deleteAlbums(List<String> albumIds) {
+        for (String albumId : albumIds) {
+            if (mgbMapper.deleteAlbum(albumId) != 1) {
+                String message = String.format("No such album with ID: %s", albumId);
+                throw new MGBNoSuchAlbumException(message);
+            }
+        }
+    }
+
+    @Transactional
+    public void deleteTrackAndTrackCoBuyers(List<Integer> trackIds) {
+        for (Integer trackId : trackIds) {
+            if (mgbMapper.deleteTrackAndTrackCoBuyers(trackId) < 1) {
+                String message = String.format("No such track with ID: %s", trackId);
+                throw new MGBNoSuchTrackException(message);
+            }
         }
     }
 }

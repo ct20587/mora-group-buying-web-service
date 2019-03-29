@@ -1,10 +1,12 @@
 package org.cynerds.mgb.controller;
 
+import org.cynerds.mgb.model.Album;
 import org.cynerds.mgb.model.Track;
 
 public class MGBErrorResponse {
     private String message;
     private Track track;
+    private Album album;
 
     public MGBErrorResponse(String message) {
         this.message = message;
@@ -15,6 +17,11 @@ public class MGBErrorResponse {
         this.track = track;
     }
 
+    public MGBErrorResponse(String message, Album album) {
+        this.message = message;
+        this.album = album;
+    }
+
     public String getMessage() {
         return message;
     }
@@ -23,7 +30,7 @@ public class MGBErrorResponse {
         return track;
     }
 
-    public void setTrack(Track track) {
-        this.track = track;
+    public Album getAlbum() {
+        return album;
     }
 }
