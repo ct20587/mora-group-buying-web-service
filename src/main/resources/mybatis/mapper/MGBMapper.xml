@@ -144,15 +144,32 @@
 
     <update id="updateAlbum">
         UPDATE album
-            <set>
-                <if test="album.albumName != null"> album_name = #{album.albumName}, </if>
-                <if test="album.artist != null"> artist = #{album.artist}, </if>
-                <if test="album.coverArt != null"> cover_art = #{album.coverArt}, </if>
-                <if test="album.url != null"> url = #{album.url}, </if>
-                updater = 'SYSTEM',
-                update_date = NOW()
-            </set>
+        <set>
+            <if test="album.albumName != null"> album_name = #{album.albumName},    </if>
+            <if test="album.artist != null">    artist = #{album.artist},           </if>
+            <if test="album.coverArt != null">  cover_art = #{album.coverArt},      </if>
+            <if test="album.url != null">       url = #{album.url},                 </if>
+            updater = 'SYSTEM',
+            update_date = NOW()
+        </set>
         WHERE
             album_id = #{album.albumId}
+    </update>
+
+    <update id="updateTrack">
+        UPDATE track
+        <set>
+            <if test="track.albumId != null">       album_id = #{track.albumId},            </if>
+            <if test="track.trackNo != null">       track_no = #{track.trackNo},            </if>
+            <if test="track.trackName != null">     track_name = #{track.trackName},        </if>
+            <if test="track.artist != null">        artist = #{track.artist},               </if>
+            <if test="track.price != null">         price = #{track.price},                 </if>
+            <if test="track.purchaseDate != null">  purchase_date = #{track.purchaseDate},  </if>
+            <if test="track.memo != null">          memo = #{track.memo},                   </if>
+            updater = 'SYSTEM',
+            update_date = NOW()
+        </set>
+        WHERE
+        track_id = #{track.trackId}
     </update>
 </mapper>

@@ -19,6 +19,9 @@ public class TrackDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(TrackDao.class);
 
+    // datetime example  2019-03-28 16:59:46
+    private static final String datetimeFormat = "yyyy-MM-dd kk:mm:ss";
+
     private MGBMapper mgbMapper;
 
     @Autowired
@@ -108,6 +111,19 @@ public class TrackDao {
                         album.getAlbumId()
                 );
                 throw new MGBNoSuchAlbumException(album, message);
+            };
+        }
+    }
+
+    @Transactional
+    public void updateTracks(List<Track> tracks) {
+        for (Track track : tracks) {
+            if (mgbMapper.updateTrack(track) != 1) {
+                String message = String.format(
+                        "No such track with ID: %s",
+                        track.getTrackId()
+                );
+                throw new MGBNoSuchTrackException(track, message);
             };
         }
     }

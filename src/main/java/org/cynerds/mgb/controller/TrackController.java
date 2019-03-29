@@ -133,7 +133,7 @@ public class TrackController {
     }
 
     @PatchMapping("/albums")
-    public ResponseEntity<List<Album>> updateTracks(
+    public ResponseEntity<List<Album>> updateAlbums(
             @RequestHeader("FLASH") String passphrase,
             @RequestBody List<Album> albums
     ) {
@@ -141,6 +141,16 @@ public class TrackController {
         
         trackDao.updateAlbums(albums);
         return ResponseEntity.status(HttpStatus.OK).body(albums);
+    }
+
+    @PatchMapping("/tracks")
+    public ResponseEntity<List<Track>> updateTracks(
+            @RequestHeader("FLASH") String passphrase,
+            @RequestBody List<Track> tracks
+    ) {
+        auth(passphrase);
+        trackDao.updateTracks(tracks);
+        return ResponseEntity.status(HttpStatus.OK).body(tracks);
     }
 
     private void auth(String passphrase) {
