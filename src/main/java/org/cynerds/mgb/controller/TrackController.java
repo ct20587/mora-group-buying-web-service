@@ -39,6 +39,12 @@ public class TrackController {
         this.trackDao = trackdao;
     }
 
+    private void auth(String passphrase) {
+        if (!Objects.equals("thunder", passphrase)) {
+            throw new RuntimeException("Passphrase incorrect!");
+        }
+    }
+
     @GetMapping("/tracks")
     public MGBTracks getTracks(
             @RequestHeader("FLASH") String passphrase,
@@ -139,7 +145,7 @@ public class TrackController {
             @RequestBody List<Album> albums
     ) {
         auth(passphrase);
-        
+
         trackDao.updateAlbums(albums);
         return ResponseEntity.status(HttpStatus.OK).body(albums);
     }
@@ -164,9 +170,13 @@ public class TrackController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    private void auth(String passphrase) {
-        if (!Objects.equals("thunder", passphrase)) {
-            throw new RuntimeException("Passphrase incorrect!");
-        }
+    @DeleteMapping("/tracks")
+    public ResponseEntity<String> deleteTracks(
+            @RequestHeader("FLASH") String passphrase,
+            @RequestBody List<Integer> trackIds
+    ) {
+        auth(passphrase);
+        trackDao.deleteTrackAndTrackCoBuyers(trackIds);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

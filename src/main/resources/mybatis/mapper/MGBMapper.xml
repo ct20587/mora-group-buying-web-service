@@ -177,4 +177,12 @@
         DELETE FROM album
         WHERE album_id = #{albumId}
     </delete>
+
+    <delete id="deleteTrackAndTrackCoBuyers">
+        DELETE t, tcb
+        FROM track t
+        JOIN track_co_buyer tcb
+        ON t.track_id = tcb.track_id
+        WHERE t.track_id = #{trackId}
+    </delete>
 </mapper>

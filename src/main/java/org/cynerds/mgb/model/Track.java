@@ -60,104 +60,117 @@ public class Track {
         return trackId;
     }
 
-    public void setTrackId(Integer trackId) {
+    public Track setTrackId(Integer trackId) {
         this.trackId = trackId;
+        return this;
     }
 
     public String getAlbumId() {
         return albumId;
     }
 
-    public void setAlbumId(String albumId) {
+    public Track setAlbumId(String albumId) {
         this.albumId = albumId;
+        return this;
     }
 
     public int getTrackNo() {
         return trackNo;
     }
 
-    public void setTrackNo(int trackNo) {
+    public Track setTrackNo(int trackNo) {
         this.trackNo = trackNo;
+        return this;
     }
 
     public String getTrackName() {
         return trackName;
     }
 
-    public void setTrackName(String trackName) {
+    public Track setTrackName(String trackName) {
         this.trackName = trackName;
+        return this;
     }
 
     public String getArtist() {
         return artist;
     }
 
-    public void setArtist(String artist) {
+    public Track setArtist(String artist) {
         this.artist = artist;
+        return this;
     }
 
     public int getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public Track setPrice(int price) {
         this.price = price;
+        return this;
     }
 
     public String getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(String purchaseDate) {
+    public Track setPurchaseDate(String purchaseDate) {
         this.purchaseDate = purchaseDate;
+        return this;
     }
 
     public String getMemo() {
         return memo;
     }
 
-    public void setMemo(String memo) {
+    public Track setMemo(String memo) {
         this.memo = memo;
+        return this;
     }
 
     public String getCreator() {
         return creator;
     }
 
-    public void setCreator(String creator) {
+    public Track setCreator(String creator) {
         this.creator = creator;
+        return this;
     }
 
     public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(String createDate) {
+    public Track setCreateDate(String createDate) {
         this.createDate = createDate;
+        return this;
     }
 
     public String getUpdater() {
         return updater;
     }
 
-    public void setUpdater(String updater) {
+    public Track setUpdater(String updater) {
         this.updater = updater;
+        return this;
     }
 
     public String getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(String updateDate) {
+    public Track setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
+        return this;
     }
 
     public List<String> getCoBuyers() {
         return coBuyers;
     }
 
-    public void setCoBuyers(List<String> coBuyers) {
+    public Track setCoBuyers(List<String> coBuyers) {
         this.coBuyers = coBuyers;
+        return this;
     }
 
     @Override

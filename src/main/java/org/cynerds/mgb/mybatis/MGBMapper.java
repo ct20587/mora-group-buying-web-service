@@ -29,4 +29,6 @@ public interface MGBMapper {
     int updateTrack(@Param("track") Track track);
 
     int deleteAlbum(@Param("albumId") String albumId);
+
+    int deleteTrackAndTrackCoBuyers(@Param("trackId") Integer trackId);
 }

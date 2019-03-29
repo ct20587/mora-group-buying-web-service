@@ -133,7 +133,17 @@ public class TrackDao {
         for (String albumId : albumIds) {
             if (mgbMapper.deleteAlbum(albumId) != 1) {
                 String message = String.format("No such album with ID: %s", albumId);
-                throw new MGBNoSuchAlbumException(new Album().setAlbumId(albumId), message);
+                throw new MGBNoSuchAlbumException(message);
+            }
+        }
+    }
+
+    @Transactional
+    public void deleteTrackAndTrackCoBuyers(List<Integer> trackIds) {
+        for (Integer trackId : trackIds) {
+            if (mgbMapper.deleteTrackAndTrackCoBuyers(trackId) < 1) {
+                String message = String.format("No such track with ID: %s", trackId);
+                throw new MGBNoSuchTrackException(message);
             }
         }
     }
