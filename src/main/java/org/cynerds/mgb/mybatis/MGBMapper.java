@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface MGBMapper {
 
-    MGBTracks queryTracks(@Param("offset") Integer offset, @Param("size") Integer size);
+    MGBTracks queryTracks(@Param("albumName") String albumNamem, @Param("offset") Integer offset, @Param("size") Integer size);
 
     List<Album> queryAlbums(@Param("albumIds") List<String> albumIds);
 

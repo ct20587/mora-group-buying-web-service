@@ -46,11 +46,13 @@ public class TrackController {
     public MGBTracks getTracks(
             @RequestHeader("FLASH") String passphrase,
             @RequestParam(defaultValue = "1") Integer page,
-            @RequestParam(defaultValue = "20") Integer size) {
+            @RequestParam(defaultValue = "20") Integer size,
+            @RequestParam(required = false) String albumName
+    ) {
         auth(passphrase);
 
         // TODO need to set maximum size limit later
-        return trackDao.getTracks(page, size);
+        return trackDao.getTracks(albumName, page, size);
 
     }
 

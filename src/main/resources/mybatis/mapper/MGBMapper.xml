@@ -48,11 +48,19 @@
     <select id="queryTracks" resultMap="MGBTracks">
         SELECT
             SQL_CALC_FOUND_ROWS 1 AS id,
-            track_id, album_id, track_no, track_name, artist,
-            price, purchase_date, memo, creator, create_date,
-            updater, update_date
+            t.track_id, t.album_id, t.track_no, t.track_name, t.artist,
+            t.price, t.purchase_date, t.memo, t.creator, t.create_date,
+            t.updater, t.update_date
         FROM
-            track
+            track t
+        JOIN
+            album a on t.album_id = a.album_id
+        <where>
+            <if test="albumName != null">
+                <bind name="albumName_pattern" value="'%' + albumName + '%'" />
+                    a.album_name LIKE #{albumName_pattern}
+            </if>
+        </where>
         ORDER BY
             create_date desc, album_id, track_no
         LIMIT
