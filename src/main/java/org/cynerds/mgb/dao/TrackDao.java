@@ -31,7 +31,7 @@ public class TrackDao {
 
     /* Response object will include an mysterious id property, it's due to mybatis' limit, the only way to get rid of it is removing
        it by our own hand... */
-    public MGBTracks getTracks(Integer page, Integer size) {
+    public MGBTracks getTracks(String albumName, Integer page, Integer size) {
 
         if (page == null) {
             page = 1;
@@ -45,7 +45,7 @@ public class TrackDao {
 
         MGBTracks result;
 
-        result = mgbMapper.queryTracks(offset, size);
+        result = mgbMapper.queryTracks(albumName, offset, size);
 
         List<String> albumIds =
                 result.getTracks().stream()
